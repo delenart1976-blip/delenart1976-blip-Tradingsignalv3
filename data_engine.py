@@ -3,6 +3,12 @@ import os, requests, pandas as pd
 from dotenv import load_dotenv
 load_dotenv()
 KEY=os.getenv("MASSIVE_API_KEY","")
+if not KEY:
+    try:
+        import streamlit as st
+        KEY=st.secrets.get("MASSIVE_API_KEY","")
+    except Exception:
+        pass
 BASE="https://api.massive.com"
 
 def _get(url, params=None):
