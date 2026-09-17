@@ -1,70 +1,25 @@
 # TradingSignalAI
 
-TradingSignalAI is a multi-timeframe market signal dashboard built with Streamlit.
+Dashboard Streamlit per segnali multi-timeframe su forex e crypto, in modalità esclusivamente paper trading.
 
-It analyzes forex and crypto assets using moving averages, RSI, MACD, ADX, support/resistance, and volume filters.
+## Avvio rapido
 
-## Features
-- Multi-timeframe scan: 15m, 1H, 4H
-- Signals: BUY / SELL / WAIT
-- Score and risk plan (entry, SL, TP1, TP2)
-- Automatic logging in `signals.csv`
-- Paper-trading oriented UI
-
-## Requirements
-- Python 3.10+
-- pip
-- A valid `MASSIVE_API_KEY`
-
-## Quick start
-
-1. Clone the repository
-2. Create and activate a virtual environment
-
-On Linux/Mac:
 ```bash
 python -m venv .venv
+# Linux/macOS
 source .venv/bin/activate
-```
-
-On Windows:
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
-
-3. Install dependencies
-```bash
+# Windows PowerShell: .venv\\Scripts\\Activate.ps1
 pip install -r requirements.txt
-```
-
-4. Configure API key
-Create a `.env` file in the project root using the example:
-```bash
 cp .env.example .env
-```
-Then edit `.env` and set:
-```env
-MASSIVE_API_KEY=your_key_here
-```
-
-Alternative for Streamlit Cloud / local secrets:
-```toml
-# .streamlit/secrets.toml
-MASSIVE_API_KEY = "your_key_here"
-```
-
-5. Start the app
-```bash
 streamlit run app.py
 ```
 
-Then open the URL shown in the terminal, usually:
-```text
-http://localhost:8501
+Inserisci la tua chiave in `.env`:
+
+```env
+MASSIVE_API_KEY=la_tua_chiave
 ```
 
-## Notes
-- The app does not send real orders; it is in paper-trading mode.
-- If no API key is provided, the app will show a warning instead of running the scan.
-- The journal writes trade records to `signals.csv` in the project root.
+Su Streamlit Cloud, inserisci la stessa variabile in **Settings → Secrets**.
+
+L'app legge i dati su 15m, 1H e 4H, calcola indicatori tecnici e salva i segnali confermati in `signals.csv`. Non effettua ordini reali. I segnali non sono consulenza finanziaria: verifica sempre dati, spread, liquidità e rischio prima di operare.
