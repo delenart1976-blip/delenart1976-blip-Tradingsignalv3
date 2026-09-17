@@ -1,0 +1,11 @@
+# Python bytecode and local environment files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.env.*
+.streamlit/secrets.toml
+signals.csv
